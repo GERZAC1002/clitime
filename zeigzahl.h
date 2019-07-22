@@ -1,4 +1,4 @@
-#include "numbers.h"
+#include "zahlen.h"
 
 int anzeige_zahl(char text[9][5],int durch,char ersatz){
 	for(int i = 0; i < 5 ; i++){
@@ -42,6 +42,9 @@ int zeige_zahl(int i,int durch,char ersatz){
 	}
 	if(i == 9){
 		anzeige_zahl(neun,durch,ersatz);
+	}
+	if(i == 98){
+		anzeige_zahl(leer,durch,ersatz);
 	}
 	if(i == 99){
 		anzeige_zahl(dp,durch,ersatz);

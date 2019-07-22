@@ -4,10 +4,11 @@
 #include <time.h>
 #include "zeigzahl.h"
 
-char ersatz = 'o';
+char ersatz = '*';
 
 int main(){
 	//setvbuf(stdout, (char*)NULL, _IONBF, 0);
+	int r = 0;
 	while(1){
 		long int zeit = 0;
 		zeit = time(NULL);
@@ -23,11 +24,20 @@ int main(){
 		s2 = stunde/10;
 		m1 = minute%10;
 		m2 = minute/10;
+		if(r == 0){
+			r = 1;
+		}else{
+			r = 0;
+		}
 		for(int i = 0; i < 9; i++){
 			printf("\x1B[36m");
 			zeige_zahl(s2,i,ersatz);
 			zeige_zahl(s1,i,ersatz);
-			zeige_zahl(99,i,ersatz);
+			if(r){
+				zeige_zahl(99,i,ersatz);
+			}else{
+				zeige_zahl(98,i,ersatz);
+			}
 			zeige_zahl(m2,i,ersatz);
 			zeige_zahl(m1,i,ersatz);
 			printf("\n");
