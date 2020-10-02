@@ -5,6 +5,7 @@
 #include "zeigzahl.h"
 
 char ersatz = '*';
+char zone = 1;
 
 int main(){
 	//setvbuf(stdout, (char*)NULL, _IONBF, 0);
@@ -12,7 +13,7 @@ int main(){
 	while(1){
 		long int zeit = 0;
 		zeit = time(NULL);
-		zeit = zeit + (60*60*2);
+		zeit = zeit + (60*60*zone);//Zeitversatz durch Zeitzone und Sommer- und Normalzeit
 		int stunde,minute = 0;
 		//int jahr,monat,tag = 0;
 		minute = zeit%3600/60;// sekunden modulo ( sekunden * minuten ) div ( sekunden )
